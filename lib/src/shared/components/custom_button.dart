@@ -6,10 +6,10 @@ class CustomButton extends StatelessWidget {
   final Color color; // Adicionei a cor como um parâmetro
 
   const CustomButton({
-    Key? key, 
-    required this.text, 
+    Key? key,
+    required this.text,
     required this.onPressed,
-    this.color = Colors.blue, 
+    this.color = Colors.blue,
   }) : super(key: key);
 
   @override
@@ -17,4 +17,9 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        primary: color,
+        backgroundColor: color,
+      ),
+      child: Text(text),
+    );
+  }
+}

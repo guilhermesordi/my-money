@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'router/app_router.dart';
-import 'modules/login/login_screen.dart'; 
+import 'src/router/app_router.dart';
+import 'src/modules/login/login_screen.dart';
 void main() {
   runApp(MyApp());
 }

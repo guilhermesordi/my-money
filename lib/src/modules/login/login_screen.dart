@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../shared/components/custom_button.dart'; 
+import '../../shared/components/custom_button.dart';
+
 
 class LoginScreen extends StatelessWidget {
   // Controladores para os campos de texto
@@ -49,7 +50,7 @@ class LoginScreen extends StatelessWidget {
             CustomButton(
               text: 'ENTRAR',
               onPressed: () {
-                // Aqui acionaremos a lógica de login
+                // Aqui adicionaremos a lógica de login
               },
               color: Colors.greenAccent, 
             ),
