@@ -24,7 +24,7 @@ mixin AppDio {
 
     // Para ignorar certificados SSL inválidos
     (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate = (HttpClient client) {
-      client.badCertificateCallback = (X509Certificate cert, String host, int port) => false; 
+      client.badCertificateCallback = (X509Certificate cert, String host, int port) => true; 
     };
 
     dio.interceptors.add(InterceptorsWrapper(
