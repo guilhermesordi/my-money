@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mymoney/src/shared/components/app_loading.dart';
 import '../../shared/components/custom_button.dart';
+// Certifique-se de importar a página de registro se necessário
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -26,6 +27,11 @@ class _LoginScreenState extends State<LoginScreen> {
         }));
   }
 
+  void _navigateToRegister() {
+    // Use o Navigator para mudar para a tela de registro
+    Navigator.of(context).pushNamed('/register'); // Certifique-se de que esta rota está definida no seu gerenciador de rotas
+  }
+
   @override
   Widget build(BuildContext context) {
     if (isLoading) {
@@ -35,48 +41,49 @@ class _LoginScreenState extends State<LoginScreen> {
     } else {
       return Scaffold(
         appBar: AppBar(
-          title: Text('Login'),
+          title: const Text('Login'),
           backgroundColor: Colors.green,
         ),
         body: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              // Campo de e-mail
               TextFormField(
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Email',
                   hintText: 'Digite seu e-mail',
                   border: OutlineInputBorder(),
                   prefixIcon: Icon(Icons.email),
                 ),
               ),
-              SizedBox(height: 16.0),
-
-              // Campo de senha
+              const SizedBox(height: 16.0),
               TextFormField(
                 controller: _passwordController,
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Senha',
                   hintText: 'Digite sua senha',
                   border: OutlineInputBorder(),
                   prefixIcon: Icon(Icons.lock),
                 ),
               ),
-              SizedBox(height: 24.0),
-
-              // Botão de Login
+              const SizedBox(height: 24.0),
               CustomButton(
                 text: 'ENTRAR',
                 onPressed: () {
                   // Aqui adicionaremos a lógica de login
                 },
                 color: Colors.greenAccent,
+              ),
+              const SizedBox(height: 16.0),
+              CustomButton(
+                text: 'Registrar-se',
+                onPressed: _navigateToRegister,
+                color: Colors.blueAccent, // Uma cor diferente para o botão de registro
               ),
             ],
           ),
