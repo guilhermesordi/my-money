@@ -1,10 +1,12 @@
+import 'register_service.dart';
+import 'register_data_modal.dart';
+
 class RegisterRepository {
   final RegisterService service;
 
   RegisterRepository(this.service);
 
-  Future<bool> registerUser(RegisterData data) async {
-    // Use o 'service' para enviar dados para a API e obter uma resposta.
-    // Retorne 'true' se o registro for bem-sucedido e 'false' caso contrário.
+  Future<bool> registerUser(RegisterDataModal dataModal) async {
+    return await service.sendRegistrationData(dataModal);
   }
 }

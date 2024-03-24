@@ -1,13 +1,19 @@
-class RegisterData {
+class RegisterDataModal {
   String email;
   String password;
-  // aqui podemos adicionar outros campos que podemos precisar para o cadastro.
+  //aqui adicionamos outros campos conforme necessário.
 
-  RegisterData({
+  RegisterDataModal({
     required this.email,
     required this.password,
-    // inicialize quaisquer outros campos aqui.
+    // Inicialize quaisquer outros campos aqui.
   });
 
-  // podemos adicionar métodos para conversão JSON se for comunicar com uma API.
+  Map<String, dynamic> toJson() {
+    return {
+      'email': email,
+      'password': password,
+      // Inclua outros campos aqui conforme você os adicionar.
+    };
+  }
 }
