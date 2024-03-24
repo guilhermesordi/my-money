@@ -1,5 +1,5 @@
-import 'register_service.dart';
-import 'register_data_modal.dart';
+import '../service/register_service.dart';
+import '../model/register_data_modal.dart';
 
 class RegisterRepository {
   final RegisterService service;

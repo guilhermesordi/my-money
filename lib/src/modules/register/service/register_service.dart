@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'app_dio.dart';
-import 'register_data_modal.dart';
+import '../../../http/app_dio.dart';
+import '../model/register_data_modal.dart';
 
 class RegisterService {
   Future<bool> sendRegistrationData(RegisterDataModal dataModal) async {

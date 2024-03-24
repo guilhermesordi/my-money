@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'register_controller.dart';
-import 'register_data_modal.dart';
+import '../controller/register_controller.dart';
+import '../model/register_data_modal.dart';
 
 class RegisterPage extends StatelessWidget {
   final RegisterController controller;

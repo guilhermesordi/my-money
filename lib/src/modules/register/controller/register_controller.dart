@@ -1,5 +1,5 @@
-import 'register_repository.dart';
-import 'register_data_modal.dart';
+import '../model/register_data_modal.dart';
+import '../repositories/register_repository.dart';
 
 class RegisterController {
   final RegisterRepository repository;
