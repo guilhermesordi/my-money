@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import 'package:mymoney/src/modules/login/service/login_service.dart';
+import 'package:mymoney/src/shared/components/app_snackbar.dart';
+import 'package:mymoney/src/shared/helpers/validators.dart';
 part 'login_controller.g.dart';
 
 class LoginController = _LoginController with _$LoginController;
 
 abstract class _LoginController with Store {
+  LoginService service = LoginService();
   @observable
   bool isLoading = false;
 
@@ -30,6 +34,11 @@ abstract class _LoginController with Store {
       isLoading = true;
       await sendData();
       isLoading = false;
+    } else {
+      AppSnackbar.openMessage(
+        context: buildContext,
+        message: "Verifique os dados preenchidos",
+      );
     }
   }
 
@@ -37,9 +46,39 @@ abstract class _LoginController with Store {
     required String emailController,
     required String passwordController,
   }) {
-    return true;
+    return (Validator.isEmail(emailController) &&
+        passwordController.isNotEmpty);
   }
 
   @action
-  Future<void> sendData() async {}
+  Future<void> sendData() async {
+    Map result = await service.sendData(username: email, password: password);
+
+    result.containsKey('sucess')
+        ? isSuccess = true
+        : getException(result['expection']);
+  }
+
+  @action
+  void getException(int code) {
+    switch (code) {
+      case 401:
+        AppSnackbar.openMessage(
+          context: buildContext,
+          message: "Acesso não autorizado",
+        );
+        break;
+      case 400:
+        AppSnackbar.openMessage(
+          context: buildContext,
+          message: "Datos inválidos",
+        );
+        break;
+      default:
+        AppSnackbar.openMessage(
+          context: buildContext,
+          message: "Erro inesperado, tente mais tarde",
+        );
+    }
+  }
 }
