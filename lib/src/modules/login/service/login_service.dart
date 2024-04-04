@@ -1,10 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:mymoney/src/modules/login/model/login_model.dart';
+import 'package:mymoney/src/modules/login/repositories/login_repository.dart';
 import 'package:mymoney/src/shared/storage/app_keys.dart';
 import 'package:mymoney/src/shared/storage/app_secure_storage.dart';
 
 class LoginService {
-  //LoginRepository repository = LoginRepository();
+  LoginRepository repository = LoginRepository();
 
   Future<Map<dynamic, dynamic>> sendData({
     required String username,
@@ -16,7 +17,7 @@ class LoginService {
         password: password,
       );
 
-      //await respository.sendData(LoginData);
+      await persistLocalData(await repository.sendData(loginData));
 
       return {"sucess": true};
     } on DioError catch (expection) {
