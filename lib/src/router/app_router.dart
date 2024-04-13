@@ -4,6 +4,7 @@ import '../modules/register/page/register_page.dart';
 import '../modules/register/controller/register_controller.dart';
 import '../modules/register/repositories/register_repository.dart';
 import '../modules/register/service/register_service.dart';
+import '../modules/dashboard/page/dashboard_screen.dart'; // Importação da tela do Dashboard
 
 class AppRouter {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -11,9 +12,10 @@ class AppRouter {
       case '/login':
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case '/register':
-
         final registerController = RegisterController(RegisterRepository(RegisterService()));
         return MaterialPageRoute(builder: (_) => RegisterPage(registerController));
+      case '/dashboard':
+        return MaterialPageRoute(builder: (_) => DashboardScreen());
       default:
         return MaterialPageRoute(builder: (_) => Scaffold(body: Center(child: Text('No route defined for ${settings.name}'))));
     }

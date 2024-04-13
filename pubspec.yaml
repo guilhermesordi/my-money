@@ -1,6 +1,6 @@
 name: mymoney
 description: "A new Flutter project."
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none' 
 
 version: 1.0.0+1
 
@@ -16,6 +16,7 @@ dependencies:
   dio: ^4.0.6
   flutter_secure_storage: ^8.0.0
   gauge_indicator: ^0.4.3
+  fl_chart: ^0.36.0
 
 dev_dependencies:
   flutter_test:
