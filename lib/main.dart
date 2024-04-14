@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'src/router/app_router.dart';
 import 'src/modules/login/login_screen.dart';
+import 'src/modules/home/page/home_page.dart';
+
 import 'package:mymoney/src/modules/dashboard/page/dashboard_screen.dart';
 void main() {
   runApp(MyApp());
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(), // Define a tela de login como a inicial
+      home: HomePage(), // Define a tela de login como a inicial
       onGenerateRoute: AppRouter.onGenerateRoute,
     );
   }
