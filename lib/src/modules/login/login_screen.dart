@@ -86,25 +86,22 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 24.0),
                   CustomButton(
-                      text: 'ENTRAR',
-                      onPressed: _login, // Adiciona a lógica de login ao botão
-                      color: Colors.greenAccent,
-                      action: () {
-                        controller.checkData(
-                          emailController: _emailController.text,
-                          passwordController: _passwordController.text,
-                          buildContext: context,
-                        );
-                      },
-                      label: "Login"),
-                  const SizedBox(height: 16.0),
+                    text: 'ENTRAR',
+                    onPressed: () {
+                      _login(); // Chame a função _login aqui.
+                      // Se a lógica do controlador também for necessária, chame-a aqui, por exemplo:
+                      // controller.checkData(...)
+                    },
+                    color: Colors.greenAccent,
+                  ),
+
+                  // E para o botão Registrar-se
                   CustomButton(
-                      text: 'Registrar-se',
-                      onPressed: _navigateToRegister,
-                      color: Colors.greenAccent,
-                      action: () {},
-                      label: "Registrar" // Cor do botão igual ao botão ENTRAR
-                      ),
+                    text: 'Registrar-se',
+                    onPressed: _navigateToRegister, // Use apenas a função _navigateToRegister.
+                    color: Colors.greenAccent,
+                  ),
+
                 ],
               ),
             ),

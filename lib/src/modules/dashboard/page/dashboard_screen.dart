@@ -6,36 +6,60 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dashboard'),
+        title: const Text('Dashboard'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: SingleChildScrollView(  
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            
-            Expanded(
-              child: PieChart(
-                PieChartData(
-                  sections: [
-                    PieChartSectionData(
-                      color: Colors.green,
-                      value: 40, // Valor que representa a parte preenchida do gráfico
-                      title: '40%',
-                      radius: 50, // O raio do gráfico de setores
-                      showTitle: false,
-                    ),
-                    PieChartSectionData(
-                      color: Colors.grey,
-                      value: 60, // Valor que representa a parte restante do gráfico
-                      title: '60%',
-                      radius: 50,
-                      showTitle: false,
-                    ),
-                  ],
-                ),
-              ),
+            PieChartWidget(30, 40, 30),  // O primeiro gráfico
+            PieChartWidget(20, 30, 50),  // Segundo gráfico
+            PieChartWidget(10, 20, 70),  // Terceiro gráfico
+            PieChartWidget(25, 25, 50),  // Quarto gráfico
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class PieChartWidget extends StatelessWidget {
+  final double value1, value2, value3;
+
+  PieChartWidget(this.value1, this.value2, this.value3);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 200,  // Define uma altura fixa para o container do gráfico
+      width: 200,  // Define uma largura fixa
+      child: PieChart(
+        PieChartData(
+          sectionsSpace: 0, // Espaço entre as seções
+          centerSpaceRadius: 30, // Raio do espaço do meio
+          startDegreeOffset: -90, // 
+          sections: [
+            PieChartSectionData(
+              color: Colors.blue,
+              value: value1,
+              showTitle: true,
+              title: '${value1.toInt()}%',
+              radius: 50,
             ),
-            // Outros widgets para o resto do conteúdo do dashboard...
+            PieChartSectionData(
+              color: Colors.red,
+              value: value2,
+              showTitle: true,
+              title: '${value2.toInt()}%',
+              radius: 50,
+            ),
+            PieChartSectionData(
+              color: Colors.green,
+              value: value3,
+              showTitle: true,
+              title: '${value3.toInt()}%',
+              radius: 50,
+            ),
           ],
         ),
       ),

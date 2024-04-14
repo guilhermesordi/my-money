@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'src/router/app_router.dart';
 import 'src/modules/login/login_screen.dart';
-
+import 'package:mymoney/src/modules/dashboard/page/dashboard_screen.dart';
 void main() {
   runApp(MyApp());
 }
