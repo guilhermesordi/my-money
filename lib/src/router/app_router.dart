@@ -16,6 +16,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => RegisterPage(registerController));
       case '/dashboard':
         return MaterialPageRoute(builder: (_) => DashboardScreen());
+        case '/home':
+        return MaterialPageRoute(builder: (_) => HomePage());
       default:
         return MaterialPageRoute(builder: (_) => Scaffold(body: Center(child: Text('No route defined for ${settings.name}'))));
     }
