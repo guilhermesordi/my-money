@@ -89,8 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     text: 'ENTRAR',
                     onPressed: () {
                       _login(); // Chame a função _login aqui.
-                      // Se a lógica do controlador também for necessária, chame-a aqui, por exemplo:
-                      // controller.checkData(...)
+                      
                     },
                     color: Colors.greenAccent,
                   ),
@@ -98,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   // E para o botão Registrar-se
                   CustomButton(
                     text: 'Registrar-se',
-                    onPressed: _navigateToRegister, // Use apenas a função _navigateToRegister.
+                    onPressed: _navigateToRegister,
                     color: Colors.greenAccent,
                   ),
 
