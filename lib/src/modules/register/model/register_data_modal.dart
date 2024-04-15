@@ -13,7 +13,7 @@ class RegisterDataModal {
     return {
       'email': email,
       'password': password,
-      // Inclua outros campos aqui conforme você os adicionar.
+      // Inclua outros campos aqui conforme adicionarmos.
     };
   }
 }
